@@ -5,7 +5,7 @@ import userRepository.UserRepository;
 
 import java.util.Objects;
 
-public class User extends UserRepository{
+public class User extends UserRepository {
     private String email;
     private String name;
     private String password;
@@ -28,10 +28,11 @@ public class User extends UserRepository{
     public static void createNewUser(String email, String name, String password) throws AlreadyExistsException {
         User newUser = new User(email, name, password);
         for (User user : UserRepository.users) {
-            if (user.getEmail().equals(email)){
+            if (user.getEmail().equals(email)) {
                 throw new AlreadyExistsException();
             }
         }
+        System.out.println("User created successfully.");
         UserRepository.addUser(newUser);
     }
 
@@ -46,7 +47,7 @@ public class User extends UserRepository{
         throw new InvalidLoginException();
     }
 
-    public static void showAllUsers(){
+    public static void showAllUsers() {
         System.out.println(UserRepository.users);
     }
 
