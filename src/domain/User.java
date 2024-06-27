@@ -27,6 +27,7 @@ public class User extends UserRepository{
 
     public static void createNewUser(String email, String name, String password) {
         User newUser = new User(email, name, password);
+
         UserRepository.addUser(newUser);
     }
 
