@@ -25,9 +25,13 @@ public class User extends UserRepository{
                 '}';
     }
 
-    public static void createNewUser(String email, String name, String password) {
+    public static void createNewUser(String email, String name, String password) throws AlreadyExists {
         User newUser = new User(email, name, password);
-
+        for (User user : UserRepository.users) {
+            if (user.getEmail().equals(email)){
+                throw new AlreadyExists();
+            }
+        }
         UserRepository.addUser(newUser);
     }
 
