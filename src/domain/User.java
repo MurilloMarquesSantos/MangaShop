@@ -2,8 +2,7 @@ package domain;
 
 import userRepository.UserRepository;
 
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Objects;
 
 public class User extends UserRepository{
@@ -35,10 +34,10 @@ public class User extends UserRepository{
         for (User user : UserRepository.users) {
             if (user.email.equals(email) && user.password.equals(password)) {
                 System.out.println("User logged successfully. \nWelcome: " + user.getName());
-            } else {
-                throw new InvalidLoginException();
+                return;
             }
         }
+        throw new InvalidLoginException();
     }
 
     public static void showAllUsers(){
