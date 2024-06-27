@@ -34,6 +34,7 @@ public class User extends UserRepository{
         for (User user : UserRepository.users) {
             if (user.email.equals(email) && user.password.equals(password)) {
                 System.out.println("User logged successfully. \nWelcome: " + user.getName());
+                System.out.println("-------------------------");
                 return;
             }
         }
