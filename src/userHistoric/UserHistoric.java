@@ -1,6 +1,7 @@
 package userHistoric;
 
 import domain.Manga;
+import domain.NoUserFoundException;
 import domain.User;
 import userRepository.UserRepository;
 
@@ -15,7 +16,7 @@ public class UserHistoric extends UserRepository {
         userHistoric.add(manga.getTitle());
     }
 
-    public static void showHistoric(String email) {
+    public static void showHistoric(String email) throws NoUserFoundException {
         for (User user : UserRepository.users) {
             if (user.getEmail().equals(email)) {
                 String name = user.getName();
@@ -24,7 +25,7 @@ public class UserHistoric extends UserRepository {
                     System.out.println("-" + s);
                 }
             }
-            throw new
+            throw new NoUserFoundException();
 
 
         }
