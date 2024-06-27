@@ -6,6 +6,8 @@ import mangaRepository.MangaRepository;
 import userHistoric.UserHistoric;
 import userRepository.UserRepository;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,9 @@ public class RentalService extends MangaRepository {
     public static List<Manga> mangaPrice = new ArrayList<>();
 
     public static void rentManga(Integer id) {
+        LocalDateTime rentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM");
+        LocalDateTime rentExpire = rentTime.plusDays(30);
         List<Manga> rentedManga = MangaRepository.mangas.stream()
                 .filter(rm -> rm.getId().equals(id))
                 .toList();
@@ -24,9 +29,14 @@ public class RentalService extends MangaRepository {
             System.out.println("Manga price: " + manga.getPrice());
             UserHistoric.addHistoric(manga);
         }
+        System.out.println("Manga rented in: "+ rentTime.format(formatter));
+        System.out.println("This manga will be able to read until" + rentExpire.format(formatter));
     }
 
     public static void rentManga(Integer id, Integer id2) {
+        LocalDateTime rentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM");
+        LocalDateTime rentExpire = rentTime.plusDays(30);
         List<Manga> chosenManga = MangaRepository.mangas.stream()
                 .filter(rm -> rm.getId().equals(id))
                 .toList();
@@ -46,6 +56,8 @@ public class RentalService extends MangaRepository {
 
 
         }
+        System.out.println("Mangas rented in: "+ rentTime.format(formatter));
+        System.out.println("These mangas will be able to read until: " + rentExpire.format(formatter));
         System.out.println("-------------------------");
 
     }
