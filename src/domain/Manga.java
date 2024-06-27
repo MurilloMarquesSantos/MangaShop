@@ -3,9 +3,7 @@ package domain;
 import mangaRepository.MangaRepository;
 
 import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Predicate;
+
 
 public class Manga extends MangaRepository {
     private Integer id;
@@ -61,7 +59,4 @@ public class Manga extends MangaRepository {
         return id;
     }
 
-    public int getChapters() {
-        return chapters;
-    }
 }

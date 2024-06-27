@@ -2,7 +2,6 @@ package payment;
 
 import domain.Manga;
 import mangaRent.RentalService;
-import org.w3c.dom.ls.LSOutput;
 
 public enum PaymentMethod {
     DEBIT {

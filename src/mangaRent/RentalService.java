@@ -1,10 +1,8 @@
 package mangaRent;
 
 import domain.Manga;
-import domain.User;
 import mangaRepository.MangaRepository;
 import userHistoric.UserHistoric;
-import userRepository.UserRepository;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

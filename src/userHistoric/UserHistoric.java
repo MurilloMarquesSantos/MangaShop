@@ -7,7 +7,6 @@ import userRepository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 public class UserHistoric extends UserRepository {
     private static List<String> userHistoric = new ArrayList<>();
