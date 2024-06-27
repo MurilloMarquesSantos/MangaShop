@@ -24,6 +24,7 @@ public class UserHistoric extends UserRepository {
                 for (String s : userHistoric) {
                     System.out.println("-" + s);
                 }
+                return;
             }
             throw new NoUserFoundException();
 
