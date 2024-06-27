@@ -1,12 +1,16 @@
 package mangaRent;
 
 import domain.Manga;
+import domain.User;
 import mangaRepository.MangaRepository;
+import userHistoric.UserHistoric;
+import userRepository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RentalService extends MangaRepository {
+
 
     public static void rentManga(Integer id) {
         List<Manga> rentedManga = MangaRepository.mangas.stream()
@@ -15,6 +19,7 @@ public class RentalService extends MangaRepository {
         for (Manga manga : rentedManga) {
             System.out.println("Chosen manga: " + manga.getTitle());
             System.out.println("Manga price: " + manga.getPrice());
+            UserHistoric.addHistoric(manga);
         }
     }
     public static void rentManga(Integer id, Integer id2){
@@ -32,6 +37,7 @@ public class RentalService extends MangaRepository {
             System.out.println("Chosen mangas: "+ manga.getTitle());
             System.out.println("Manga price: "+ manga.getPrice());
             System.out.println("-");
+            UserHistoric.addHistoric(manga);
 
         }
         System.out.println("-------------------------");
